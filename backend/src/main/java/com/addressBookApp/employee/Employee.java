@@ -1,6 +1,20 @@
 package com.addressBookApp.employee;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Employee {
+    @Id
+    @SequenceGenerator(
+            name = "employee_sequence",
+            sequenceName = "employee_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "employee_sequence"
+    )
     private Integer id;
     private String name;
     private String login;

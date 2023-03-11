@@ -1,6 +1,20 @@
 package com.addressBookApp.group;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "groups")
 public class Group {
+    @Id
+    @SequenceGenerator(
+            name = "groups_sequence",
+            sequenceName = "groups_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "groups_sequence"
+    )
     private Integer id;
     private String name;
 

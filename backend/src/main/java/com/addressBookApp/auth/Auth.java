@@ -1,6 +1,20 @@
 package com.addressBookApp.auth;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Auth {
+    @Id
+    @SequenceGenerator(
+            name = "auth_sequence",
+            sequenceName = "auth_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "auth_sequence"
+    )
     private String logon;
     private String password;
 

@@ -1,12 +1,27 @@
 package com.addressBookApp.client;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "clients")
 public class Client {
+
+    @Id
+    @SequenceGenerator(
+            name = "clients_sequence",
+            sequenceName = "clients_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "clients_sequence"
+    )
     private Integer id;
     private String fullname;
     private String address;
     private String email;
     private String phone_number;
-    private String group;
+    private String clients_group;
 
     public Client() {
     }
@@ -16,13 +31,13 @@ public class Client {
                   String address,
                   String email,
                   String phone_number,
-                  String group) {
+                  String clients_group) {
         this.id = id;
         this.fullname = fullname;
         this.address = address;
         this.email = email;
         this.phone_number = phone_number;
-        this.group = group;
+        this.clients_group = clients_group;
     }
 
     public Integer getId() {
@@ -66,11 +81,11 @@ public class Client {
     }
 
     public String getGroup() {
-        return group;
+        return clients_group;
     }
 
     public void setGroup(String group) {
-        this.group = group;
+        this.clients_group = clients_group;
     }
 
     @Override
@@ -81,7 +96,7 @@ public class Client {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phone_number='" + phone_number + '\'' +
-                ", group='" + group + '\'' +
+                ", clients_group='" + clients_group + '\'' +
                 '}';
     }
 }
