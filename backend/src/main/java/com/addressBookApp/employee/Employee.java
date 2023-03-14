@@ -28,6 +28,11 @@ public class Employee {
         this.login = login;
     }
 
+    public Employee(String name, String login) {
+        this.name = name;
+        this.login = login;
+    }
+
     public Integer getId() {
         return id;
     }

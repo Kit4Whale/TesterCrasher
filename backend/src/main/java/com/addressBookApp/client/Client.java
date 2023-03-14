@@ -40,6 +40,18 @@ public class Client {
         this.clients_group = clients_group;
     }
 
+    public Client(String fullname,
+                  String address,
+                  String email,
+                  String phone_number,
+                  String clients_group) {
+        this.fullname = fullname;
+        this.address = address;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.clients_group = clients_group;
+    }
+
     public Integer getId() {
         return id;
     }
