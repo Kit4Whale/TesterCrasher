@@ -28,4 +28,12 @@ public class ClientService {
         }
         clientRepository.save(client);
     }
+
+    public void deleteClient(Integer clientId) {
+        boolean exists = clientRepository.existsById(clientId);
+        if(!exists) {
+            throw new IllegalStateException("client with id " + clientId + " dose not exists");
+        }
+        clientRepository.deleteById(clientId);
+    }
 }

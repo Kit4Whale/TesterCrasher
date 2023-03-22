@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/clients")
+@RequestMapping
 public class ClientController {
 
     private final ClientService clientService;
@@ -16,13 +16,18 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping
+    @GetMapping(path = "api/v1/clients")
     public List<Client> getClient() {
         return clientService.getClient();
     }
 
-    @PostMapping
+    @PostMapping(path = "api/v1/clients/create")
     public void addNewClient(@RequestBody Client client) {
         clientService.addClient(client);
+    }
+
+    @DeleteMapping(path = "api/v1/clients/{clientID}")
+    public void deleteClient(@PathVariable("clientID") Integer clientId) {
+        clientService.deleteClient(clientId);
     }
 }

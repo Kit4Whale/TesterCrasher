@@ -34,4 +34,12 @@ public class GroupService {
         }
         groupRepository.save(group);
     }
+
+    public void deleteGroup(Integer groupId) {
+        boolean exists = groupRepository.existsById(groupId);
+        if(!exists) {
+            throw new IllegalStateException("group with id " + groupId + " dose not exists");
+        }
+        groupRepository.deleteById(groupId);
+    }
 }
