@@ -96,7 +96,7 @@ public class Client {
         return clients_group;
     }
 
-    public void setGroup(String group) {
+    public void setGroup(String clients_group) {
         this.clients_group = clients_group;
     }
 

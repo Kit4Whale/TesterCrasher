@@ -29,6 +29,13 @@ public class EmployeeController {
     @DeleteMapping(path = "api/v1/employees/{employeeID}")
     public void deleteEmployee(@PathVariable("employeeID") Integer employeeId) {
         employeeService.deleteEmployee(employeeId);
+    }
+
+    @PostMapping(path = "api/v1/employees/update/{employeeID}")
+    public void updateEmployee(
+            @PathVariable("employeeID") Integer employeeId,
+            @RequestBody Employee employee) {
+        employeeService.updateEmployee(employeeId, employee);
 
     }
 }

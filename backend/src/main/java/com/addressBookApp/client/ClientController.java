@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping
@@ -29,5 +30,12 @@ public class ClientController {
     @DeleteMapping(path = "api/v1/clients/{clientID}")
     public void deleteClient(@PathVariable("clientID") Integer clientId) {
         clientService.deleteClient(clientId);
+    }
+
+    @PostMapping(path = "api/v1/clients/update/{clientID}")
+    public void updateClient(
+            @PathVariable("clientID") Integer clientId,
+            @RequestBody Client client) {
+        clientService.updateClient(clientId, client);
     }
 }

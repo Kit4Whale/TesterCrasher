@@ -1,19 +1,26 @@
 package com.addressBookApp.employee;
 
+import com.addressBookApp.client.Client;
+import com.addressBookApp.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final ClientRepository clientRepository;
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository,
+                           ClientRepository clientRepository) {
         this.employeeRepository = employeeRepository;
+        this.clientRepository = clientRepository;
     }
 
     public List<Employee> getEmployee () {
@@ -35,5 +42,25 @@ public class EmployeeService {
             throw new IllegalStateException("employee with id " + employeeId + " dose not exists");
         }
         employeeRepository.deleteById(employeeId);
+    }
+
+    @Transactional
+    public void updateEmployee(Integer employeeId,
+                               Employee employee) {
+        Employee employeeRep = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "employee with id " + employeeId + " dose not exists"));
+
+        if(employee.getName() != null &&
+                employee.getName().length() > 0 &&
+                !Objects.equals(employeeRep.getName(), employee.getName())) {
+            employeeRep.setName(employee.getName());
+        }
+
+        if(employee.getLogin() != null &&
+        employee.getLogin().length() > 0 &&
+        !Objects.equals(employeeRep.getLogin(), employee.getLogin())) {
+            employeeRep.setLogin(employee.getLogin());
+        }
     }
 }
