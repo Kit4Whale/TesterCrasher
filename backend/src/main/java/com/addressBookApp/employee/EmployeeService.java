@@ -1,12 +1,12 @@
 package com.addressBookApp.employee;
 
-import com.addressBookApp.client.Client;
 import com.addressBookApp.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -23,8 +23,8 @@ public class EmployeeService {
         this.clientRepository = clientRepository;
     }
 
-    public List<Employee> getEmployee () {
-        return employeeRepository.findAll();
+    public Page<Employee> getEmployee (Integer limit) {
+        return employeeRepository.findAll(PageRequest.ofSize(limit));
     }
 
     public void addEmployee(Employee employee) {

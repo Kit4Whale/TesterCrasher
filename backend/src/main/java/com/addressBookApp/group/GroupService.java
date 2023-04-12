@@ -2,11 +2,11 @@ package com.addressBookApp.group;
 
 import com.addressBookApp.employee.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -23,8 +23,8 @@ public class GroupService {
         this.employeeRepository = employeeRepository;
     }
 
-    public List<Group> getGroup() {
-        return groupRepository.findAll();
+    public Page<Group> getGroup(Integer limit) {
+        return groupRepository.findAll(PageRequest.ofSize(limit));
     }
 
     public void addGroup(Group group) {

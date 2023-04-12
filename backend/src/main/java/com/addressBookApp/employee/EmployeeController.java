@@ -1,9 +1,8 @@
 package com.addressBookApp.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping
@@ -17,8 +16,9 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "api/v1/employees")
-    public List<Employee> getEmployee () {
-        return employeeService.getEmployee();
+    public Page<Employee> getEmployee (
+            @RequestParam("limit") Integer limit) {
+        return employeeService.getEmployee(limit);
     }
 
     @PostMapping(path = "api/v1/employees/create")

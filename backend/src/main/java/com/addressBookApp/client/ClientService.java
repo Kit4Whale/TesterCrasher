@@ -1,10 +1,11 @@
 package com.addressBookApp.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -18,8 +19,8 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public List<Client> getClient() {
-        return clientRepository.findAll();
+    public Page<Client> getClient(Integer limit) {
+        return clientRepository.findAll(PageRequest.ofSize(limit));
     }
 
     public void addClient(Client client) {

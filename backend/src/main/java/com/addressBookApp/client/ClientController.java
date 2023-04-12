@@ -1,10 +1,8 @@
 package com.addressBookApp.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping
@@ -18,8 +16,9 @@ public class ClientController {
     }
 
     @GetMapping(path = "api/v1/clients")
-    public List<Client> getClient() {
-        return clientService.getClient();
+    public Page<Client> getClient(
+            @RequestParam("limit") Integer limit) {
+        return clientService.getClient(limit);
     }
 
     @PostMapping(path = "api/v1/clients/create")

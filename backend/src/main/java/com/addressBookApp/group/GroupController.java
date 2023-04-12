@@ -1,6 +1,7 @@
 package com.addressBookApp.group;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +18,9 @@ public class GroupController {
     }
 
     @GetMapping(path = "api/v1/groups")
-    public List<Group> getGroup() {
-        return groupService.getGroup();
+    public Page<Group> getGroup(
+            @RequestParam("limit") Integer limit) {
+        return groupService.getGroup(limit);
     }
 
     @PostMapping(path = "api/v1/groups/create")
