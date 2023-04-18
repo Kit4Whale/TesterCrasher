@@ -1,0 +1,54 @@
+.homeTabs {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 120px;
+
+    a {
+        text-decoration: none;
+    }
+
+    &__button {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        width: 387px;
+        height: 86px;
+        left: 120px;
+        top: 144px;
+        background: #ECF0F9;
+        border: none;
+        border-radius: 20px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 131.4%;
+        text-align: center;
+        letter-spacing: -0.035em;
+        color: #000000;
+
+        &:hover {
+            background: #D3DEFA;
+        }
+
+        &:active {
+            background: #D3DEFA;
+        }
+
+        &:focus {
+            opacity: .8;
+            background: #D3DEFA;
+        }
+
+        &_active {
+            background: #D3DEFA;
+        }
+
+        &:not(:first-of-type) {
+            margin-left: 20px;
+        }
+    }
+}

@@ -1,16 +1,14 @@
 import { useState } from 'react'
 import { NavDropdown } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { getLogout } from '../store/reducers/usersActions'
 import { useAppDispatch, useAppSelector } from '../store/redux-hooks'
 
 
 const TopNavbar = () => {
-
     const name = useAppSelector(state => state.users.name)
     const access = useAppSelector(state => state.users.access) 
     const dispatch = useAppDispatch();
-
-
     const [languages] = useState<Array<string>>(["RUS", "ENG", "DET", "ITA"])
     const [selectLanguage, setSelectLanguage] = useState(languages[0])
 
@@ -24,7 +22,7 @@ const TopNavbar = () => {
 
     return (
         <div className='topNavbar'>
-            <header>Address BookApp</header>
+            <Link to="/" className='topNavbar__mainLink'>Address BookApp</Link>
             {false ? <><span>Name: {name}</span>
             <span>Access: {access}</span></> : null}
             <div className="toolBar">

@@ -1,0 +1,45 @@
+.action-navigation {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.buttonAdd {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 131.4%;
+    text-align: center;
+    letter-spacing: -0.035em;
+    color: #000000;
+    border: none;
+    background: none;
+
+    &:hover .buttonAdd__icon {
+        opacity: .6;
+        cursor: pointer;
+    }
+
+    &:active .buttonAdd__icon {
+        opacity: .6;
+        cursor: pointer;
+    }
+
+    &:focus .buttonAdd__icon {
+        opacity: .8;
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-left: 12px;
+        color: #4D9E46;
+    }
+}

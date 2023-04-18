@@ -9,9 +9,10 @@
     padding: 42px 120px;
     box-sizing: border-box;
 
-    header {
+    .topNavbar__mainLink {
         min-width: 281px;
         max-width: 30%;
+        text-decoration: none;
         height: 39px;
         left: 120px;
         top: 42px;
@@ -22,6 +23,21 @@
         /* identical to box height */
         letter-spacing: -0.035em;
         color: #000000;
+
+        &:hover {
+            cursor: pointer;
+            color: #0000009c;
+        }
+
+        &:active {
+            cursor: pointer;
+            color: #0000009c;
+        }
+
+        &:focus {
+            cursor: pointer;
+            color: #0000009c;
+        }
     }
 
     .toolBar {

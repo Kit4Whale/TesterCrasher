@@ -1,0 +1,119 @@
+.employeesPage {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 100%;
+
+    &__buttonAdd {
+        align-self: flex-end;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 60px 120px;
+    }
+
+    &__employeeList {
+        width: 100%;
+        margin-top: 36px;
+    }
+
+    .employeeList {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .card {
+            // max-width: 387px;
+            max-width: calc((100% - 40px) / 3);
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 30px 50px;
+            background: #FFFFFF;
+            border: 1px solid #D3DEFA;
+            border-radius: 20px;
+            box-sizing: border-box;
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 131.4%;
+            text-align: left;
+            letter-spacing: -0.035em;
+            color: #000000;
+
+            &:not(:nth-of-type(3n)) {
+                margin-right: 20px;
+            }
+
+            &:nth-of-type(n+4) {
+                margin-top: 20px;
+            }
+
+            &__name {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+            &__name, &__address, &__email, &__phone, &__group  {
+                margin-bottom: 19px;
+            }
+
+            &__buttons {
+                width: 100%;
+                display: flex;
+                flex-flow: row;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 28px;
+            }
+
+            &__button {
+                font-size: 14px;
+
+                &:hover {
+                    opacity: .8;
+                    cursor: pointer;
+                }
+    
+                &:active {
+                    opacity: .6;
+                    cursor: pointer;
+                }
+    
+                &:focus {
+                    opacity: .8 ;
+                    cursor: pointer;
+                }
+
+                &_edit {
+                    color:#4D9E46;
+                }
+
+                &_delete {
+                    color:#E01D1D;
+                }
+
+                &:not(:first-of-type) {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+
+    }
+
+    &__pagination {
+        width: 100%;
+        margin-top: 66px;
+    }
+}
